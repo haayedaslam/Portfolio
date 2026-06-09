@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haayed Aslam | Engineering Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark Mode (Default) */
+            --bg-color: #0b1120;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --tag-bg: rgba(56, 189, 248, 0.1);
+            --border: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(11, 17, 32, 0.8);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent: #0284c7;
+            --tag-bg: rgba(2, 132, 199, 0.1);
+            --border: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(241, 245, 249, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 8rem 10% 4rem;
+            max-width: 1200px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        /* Projects Section */
+        .container {
+            padding: 0 10% 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Tech Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--tag-bg);
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* Links */
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 4rem 10%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HAAYED ASLAM</div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Engineering Projects</h1>
+        <p class="hero-desc">
+            Passionate software engineer focused on developing high-performance applications, 
+            machine learning models, and efficient system architectures.
+        </p>
+    </header>
+
+    <main class="container">
+        <div class="project-grid">
+            
+            <!-- Project 1 -->
+            <article class="project-card">
+                <h3>Flight Booking System</h3>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">DSA</span>
+                    <span class="tag">System Design</span>
+                </div>
+                <p>Designed and implemented a flight booking system using C++ and Data Structures and Algorithms (DSA) principles. Integrated features such as flight searching, seat reservation, and passenger information management. Utilized efficient data structures for optimized performance and scalability.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/flight-booking-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+                <h3>Automated Grading System</h3>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Multithreading</span>
+                    <span class="tag">Automation</span>
+                </div>
+                <p>Developed an automated grading system using C++ and multithreading concepts. Engineered a robust system capable of concurrently processing multiple student assignments, improving efficiency and reducing grading time. Implemented advanced error handling and reporting mechanisms.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/automated-grading-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <h3>Movie Recommendation System</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Pandas</span>
+                </div>
+                <p>Created a movie recommendation system using Python and Machine Learning techniques. Employed collaborative filtering and content-based filtering algorithms to provide personalized movie suggestions to users. Leveraged libraries such as NumPy, Pandas, and Scikit-learn for data preprocessing and model training.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/movie-recommendation-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+                <h3>Portfolio Website</h3>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <p>Designed and developed a personal portfolio website using HTML, CSS, and JavaScript. Showcased projects, skills, and experience in a visually appealing and user-friendly manner. Implemented responsive design for seamless accessibility across different devices.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/haayedaslam.github.io"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project-card">
+                <h3>Image Processing Project</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">Computer Vision</span>
+                </div>
+                <p>Explored image processing techniques using Python and OpenCV library. Developed algorithms for tasks such as image filtering, edge detection, and object recognition. Applied computer vision principles to enhance and analyze digital images.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/image-processing-project"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 6 -->
+            <article class="project-card">
+                <h3>Heart Disease Prediction</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Scikit-learn</span>
+                    <span class="tag">Healthcare AI</span>
+                </div>
+                <p>Developed a machine learning model to predict the likelihood of heart disease based on patient data. Utilized Python and libraries like Scikit-learn to train and evaluate various classification algorithms. Achieved high accuracy in predicting cardiovascular risks.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/heart-disease-prediction"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 7 -->
+            <article class="project-card">
+                <h3>Inventory Management System</h3>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JDBC</span>
+                </div>
+                <p>Designed and implemented an inventory management system using Java and MySQL. Created a robust database schema to track products, suppliers, and transactions. Integrated a user-friendly interface for managing inventory levels and generating reports.</p>
+                <div class="project-links">
+                    <a href="https://github.com/haayedaslam/inventory-management-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Haayed Aslam. Built with precision.</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const body = document.body;
+        const icon = themeBtn.querySelector('i');
+
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        themeBtn.addEventListener('click', () => {
+            let currentTheme = body.getAttribute('data-theme');
+            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'light') {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>
