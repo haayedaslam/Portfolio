@@ -1,364 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haayed Aslam | Engineering Portfolio</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            /* Dark Mode (Default) */
-            --bg-color: #0b1120;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --tag-bg: rgba(56, 189, 248, 0.1);
-            --border: rgba(255, 255, 255, 0.1);
-            --nav-bg: rgba(11, 17, 32, 0.8);
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f1f5f9;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --accent: #0284c7;
-            --tag-bg: rgba(2, 132, 199, 0.1);
-            --border: rgba(0, 0, 0, 0.1);
-            --nav-bg: rgba(241, 245, 249, 0.8);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.2rem;
-        }
-
-        /* Hero Section */
-        header {
-            padding: 8rem 10% 4rem;
-            max-width: 1200px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-        }
-
-        /* Projects Section */
-        .container {
-            padding: 0 10% 5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .project-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.5rem; }
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-color: var(--accent);
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        /* Tech Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background: var(--tag-bg);
-            color: var(--accent);
-            text-transform: uppercase;
-        }
-
-        /* Links */
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .project-links a {
-            text-decoration: none;
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .project-links a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            padding: 4rem 10%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Aleks Gornik</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' }</script>
+<style>
+  /* Hide mobile menu on desktop */
+  .mobile-menu {
+    display: none;
+  }
+</style>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 text-gray-800 font-sans">
 
-    <nav>
-        <div class="logo">HAAYED ASLAM</div>
-        <div class="nav-right">
-            <button class="theme-toggle" id="theme-btn">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-        </div>
+<header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
+  <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-xl font-bold">Aleks Gornik</a>
+    <nav class="hidden md:flex items-center space-x-6">
+      <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+      <a href="about.html" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+      <a href="cv.html" class="hover:text-blue-600 dark:hover:text-blue-400">CV</a>
+      <a href="projects.html" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+      <a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+      <button id="darkToggle" class="ml-2 px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 dark:text-white">🌙 / ☀️</button>
     </nav>
+    <div class="md:hidden flex items-center">
+      <button id="darkToggleMobile" class="mr-2 px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 dark:text-white">🌙 / ☀️</button>
+      <button id="mobile-menu-button" class="text-gray-800 dark:text-gray-100 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="mobile-menu md:hidden">
+    <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+    <a href="about.html" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
+    <a href="cv.html" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">CV</a>
+    <a href="projects.html" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
+    <a href="contact.html" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+  </div>
+</header>
 
-    <header>
-        <h1>Engineering Projects</h1>
-        <p class="hero-desc">
-            Passionate software engineer focused on developing high-performance applications, 
-            machine learning models, and efficient system architectures.
-        </p>
-    </header>
+<section class="bg-gray-100 dark:bg-gray-950 py-16 px-4">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-3xl font-semibold mb-8">Projects</h2>
+<div class="grid gap-6 sm:grid-cols-2">
+<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition">
+<h3 class="text-xl font-bold mb-2">Graph Neural Networks (GNNs) for Simulating Airway Flow</h3>
+<p class="mb-4">My final year research project which explored novel ways to simulate lung ventilation.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full dark:bg-blue-900 dark:text-blue-200">Python</span>
+<span class="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-full dark:bg-green-900 dark:text-green-200">PyTorch</span>
+<span class="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-full dark:bg-purple-900 dark:text-purple-200">Graph Neural Networks</span>
+<span class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded-full dark:bg-red-900 dark:text-red-200">Pulmonology</span>
+</div>
+<a href="https://github.com/alexbond008/GNN_Model" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+<a href="assets/Individual Project.pdf" target="_blank" class="ml-4 text-blue-600 hover:underline">View Full Paper</a>
 
-    <main class="container">
-        <div class="project-grid">
-            
-            <!-- Project 1 -->
-            <article class="project-card">
-                <h3>Flight Booking System</h3>
-                <div class="tags">
-                    <span class="tag">C++</span>
-                    <span class="tag">DSA</span>
-                    <span class="tag">System Design</span>
-                </div>
-                <p>Designed and implemented a flight booking system using C++ and Data Structures and Algorithms (DSA) principles. Integrated features such as flight searching, seat reservation, and passenger information management. Utilized efficient data structures for optimized performance and scalability.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/flight-booking-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+  <!-- Video Link -->
+  <a href="assets/Simulating_Lungs_with_AI.mp4" 
+     target="_blank" 
+     class="ml-4 text-blue-600 hover:underline">Watch Presentation</a>
 
-            <!-- Project 2 -->
-            <article class="project-card">
-                <h3>Automated Grading System</h3>
-                <div class="tags">
-                    <span class="tag">C++</span>
-                    <span class="tag">Multithreading</span>
-                    <span class="tag">Automation</span>
-                </div>
-                <p>Developed an automated grading system using C++ and multithreading concepts. Engineered a robust system capable of concurrently processing multiple student assignments, improving efficiency and reducing grading time. Implemented advanced error handling and reporting mechanisms.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/automated-grading-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+  <!-- Audio Player -->
+  <div class="mt-4">
+    <p class="text-sm font-medium mb-2">🎧 Listen to Podcast Overview:</p>
+    <audio controls class="w-full">
+      <source src="assets/gnn.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-            <!-- Project 3 -->
-            <article class="project-card">
-                <h3>Movie Recommendation System</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Pandas</span>
-                </div>
-                <p>Created a movie recommendation system using Python and Machine Learning techniques. Employed collaborative filtering and content-based filtering algorithms to provide personalized movie suggestions to users. Leveraged libraries such as NumPy, Pandas, and Scikit-learn for data preprocessing and model training.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/movie-recommendation-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+</div>
 
-            <!-- Project 4 -->
-            <article class="project-card">
-                <h3>Portfolio Website</h3>
-                <div class="tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JavaScript</span>
-                </div>
-                <p>Designed and developed a personal portfolio website using HTML, CSS, and JavaScript. Showcased projects, skills, and experience in a visually appealing and user-friendly manner. Implemented responsive design for seamless accessibility across different devices.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/haayedaslam.github.io"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition">
+<h3 class="text-xl font-bold mb-2">Money-BBAPi: Portfolio Management App</h3>
+<p class="mb-4">A lightweight net worth tracker with real-time visualization.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-700 rounded-full dark:bg-yellow-900 dark:text-yellow-200">Java</span>
+<span class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded-full dark:bg-red-900 dark:text-red-200">Spring Boot</span>
+<span class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full dark:bg-gray-700 dark:text-gray-200">Maven</span>
+<span class="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-full dark:bg-green-900 dark:text-green-200">Investment Management</span>
+</div>
+<a href="https://github.com/alexbond008/Money-BBAPi" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+</div>
 
-            <!-- Project 5 -->
-            <article class="project-card">
-                <h3>Image Processing Project</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">OpenCV</span>
-                    <span class="tag">Computer Vision</span>
-                </div>
-                <p>Explored image processing techniques using Python and OpenCV library. Developed algorithms for tasks such as image filtering, edge detection, and object recognition. Applied computer vision principles to enhance and analyze digital images.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/image-processing-project"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition">
+  <h3 class="text-xl font-bold mb-2">Detecting Nanoparticle Motion in Tissue via Magnetic Spectroscopy </h3>
+  <p class="mb-4">Using magnetics, this R&D project detected signs of disease by seeing how tiny magnetic particles change their spin when they stick to disease-causing molecules in the body.</p>
+  
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="px-3 py-1 text-sm bg-pink-100 text-pink-700 rounded-full dark:bg-pink-900 dark:text-pink-200">Python</span>
+    <span class="px-3 py-1 text-sm bg-indigo-100 text-indigo-700 rounded-full dark:bg-indigo-900 dark:text-indigo-200">Signal Processing</span>
+    <span class="px-3 py-1 text-sm bg-teal-100 text-teal-700 rounded-full dark:bg-teal-900 dark:text-teal-200">Magnetics</span>
+    <span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-700 rounded-full dark:bg-yellow-900 dark:text-yellow-200">Electronics</span>
+    <span class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full dark:bg-gray-700 dark:text-gray-200">Cell Biology</span>
+  </div>
 
-            <!-- Project 6 -->
-            <article class="project-card">
-                <h3>Heart Disease Prediction</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Scikit-learn</span>
-                    <span class="tag">Healthcare AI</span>
-                </div>
-                <p>Developed a machine learning model to predict the likelihood of heart disease based on patient data. Utilized Python and libraries like Scikit-learn to train and evaluate various classification algorithms. Achieved high accuracy in predicting cardiovascular risks.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/heart-disease-prediction"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+  <!-- Links -->
+  <a href="assets/Detecting_Nanoparticle_Motion_In_Tissue_via_Magnetic_Spectroscopy.pdf" 
+     target="_blank" 
+     class="text-blue-600 hover:underline">View Full Paper</a>
 
-            <!-- Project 7 -->
-            <article class="project-card">
-                <h3>Inventory Management System</h3>
-                <div class="tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">JDBC</span>
-                </div>
-                <p>Designed and implemented an inventory management system using Java and MySQL. Created a robust database schema to track products, suppliers, and transactions. Integrated a user-friendly interface for managing inventory levels and generating reports.</p>
-                <div class="project-links">
-                    <a href="https://github.com/haayedaslam/inventory-management-system"><i class="fa-brands fa-github"></i> View on GitHub</a>
-                </div>
-            </article>
+  <!-- Video Link -->
+  <a href="assets/Listening_to_the_Body.mp4" 
+     target="_blank" 
+     class="ml-4 text-blue-600 hover:underline">Watch Presentation</a>
 
-        </div>
-    </main>
+  <!-- Audio Player -->
+  <div class="mt-4">
+    <p class="text-sm font-medium mb-2">🎧 Listen to Podcast Overview:</p>
+    <audio controls class="w-full">
+      <source src="assets/Magnetic_Spectroscopy__Unlocking_Real-Time_Biological_Insights_.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</div>
+  
+<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition">
+  <h3 class="text-xl font-bold mb-2">Kotlin Compose Calculator (Android)</h3>
+  <p class="mb-4">A simple yet functional calculator app for Android, built using Kotlin and Jetpack Compose. Demonstrates modern MVVM-like architecture and declarative UI principles. Features include basic arithmetic operations, decimal input, clear and delete functions, and a responsive interface that adapts to different screen orientations.</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-full dark:bg-purple-900 dark:text-purple-200">Kotlin</span>
+    <span class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full dark:bg-blue-900 dark:text-blue-200">Jetpack Compose</span>
+    <span class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full dark:bg-gray-700 dark:text-gray-200">Android</span>
+    <span class="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-full dark:bg-green-900 dark:text-green-200">MVVM</span>
+  </div>
+  <a href="https://github.com/alexbond008/calculator-android" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+</div>
 
-    <footer>
-        <p>&copy; 2023 Haayed Aslam. Built with precision.</p>
-    </footer>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-xl hover:scale-105 transition">
+  <h3 class="text-xl font-bold mb-2">Titanic: Machine Learning from Disaster (Kaggle)</h3>
+  <p class="mb-4">A hands-on solution for the classic Kaggle Titanic competition. Predicts passenger survival using modern machine learning techniques. The project covers data cleaning, feature engineering, and training multiple models (Logistic Regression, Random Forest, XGBoost) for robust predictions.</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="px-3 py-1 text-sm bg-yellow-100 text-yellow-700 rounded-full dark:bg-yellow-900 dark:text-yellow-200">Python</span>
+    <span class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full dark:bg-blue-900 dark:text-blue-200">Scikit-Learn</span>
+    <span class="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-full dark:bg-green-900 dark:text-green-200">Machine Learning</span>
+    <span class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full dark:bg-gray-700 dark:text-gray-200">Pandas</span>
+  </div>
+  <a href="https://github.com/alexbond008/Titanic-ML-from-Disaster" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+</div>
 
-    <script>
-        const themeBtn = document.getElementById('theme-btn');
-        const body = document.body;
-        const icon = themeBtn.querySelector('i');
+</section>
 
-        // Check for saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-        }
+<footer class="bg-white dark:bg-gray-800 shadow-inner py-6 mt-12">
+<p class="text-center text-gray-500 dark:text-gray-400 text-sm">© 2025 Aleks Gornik. Built with ❤️ and TailwindCSS.</p>
+</footer>
 
-        themeBtn.addEventListener('click', () => {
-            let currentTheme = body.getAttribute('data-theme');
-            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateIcon(newTheme);
-        });
-
-        function updateIcon(theme) {
-            if (theme === 'light') {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        }
-    </script>
+<script src="js/script.js"></script>
 </body>
 </html>
