@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Haayed Aslam</title>
+    <title>Haayed Aslam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { 
@@ -13,16 +13,29 @@
     <style>
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
+        html { scroll-behavior: smooth; }
+
+        /* Grid Background for Contact Section */
+        .grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+        }
+        .dark .grid-pattern {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 text-gray-800 font-sans transition-colors duration-300">
 
 <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
   <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
-    <a href="index.html" class="text-xl font-bold tracking-tight">Haayed Aslam</a>
+    <a href="#" class="text-xl font-bold tracking-tight">Haayed Aslam</a>
     <nav class="hidden md:flex items-center space-x-6">
       <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Home</a>
       <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Projects</a>
+      <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Contact</a>
       <button id="darkToggle" class="ml-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
         <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
       </button>
@@ -37,6 +50,7 @@
   <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700">
     <a href="#" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
     <a href="#projects" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+    <a href="#contact" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
   </div>
 </header>
 
@@ -58,14 +72,14 @@
                 <span class="px-3 py-1 text-xs font-semibold bg-indigo-100 text-indigo-700 rounded-full dark:bg-indigo-900/30 dark:text-indigo-300">Flask</span>
                 <span class="px-3 py-1 text-xs font-semibold bg-red-100 text-red-700 rounded-full dark:bg-red-900/30 dark:text-red-300">Formula 1</span>
             </div>
-            <a href="https://github.com/haayedaslam/flight-booking-system" target="_blank" class="inline-flex items-center text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="https://github.com/haayedaslam" target="_blank" class="inline-flex items-center text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
                 View on GitHub <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
             </a>
         </div>
 
         <!-- Project 2 -->
         <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col">
-            <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">Biomimicry in aircraft wing design<h3>
+            <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">Biomimicry in aircraft wing design</h3>
             <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">Research paper investigating and comparing radical wing concepts aimed at meeting Net Zero targets. Ran each design through MicroCFD to record L/D ratios for quantitative analysis. Submitted to the Sustainable Skies World Summit and Global Innovators' Challenge 2026.</p>
             <div class="flex flex-wrap gap-2 mb-6">
                 <span class="px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full dark:bg-green-900/30 dark:text-green-300">CFD</span>
@@ -105,7 +119,7 @@
                 <span class="px-3 py-1 text-xs font-semibold bg-emerald-100 text-emerald-700 rounded-full dark:bg-emerald-900/30 dark:text-emerald-300">Simulation</span>
                 <span class="px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-700 rounded-full dark:bg-gray-700 dark:text-gray-300">Software Development</span>
             </div>
-            <a href="https://github.com/haayedaslam/image-processing-project" target="_blank" class="inline-flex items-center text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="https://github.com/haayedaslam" target="_blank" class="inline-flex items-center text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
                 View on GitHub <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
             </a>
         </div>
@@ -113,7 +127,7 @@
         <!-- Project 6 -->
         <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col">
             <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">ESA CanSat Competition</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">Built an electronic payload launched into the atmosphere to collect environmental data. Python-controlled BMP280 sensor and Raspberry Pi. Coded a closed-loop feedback system to operate servos that opened/closed landing flaps. <1m landing error at regional launch and Industrial Cadets silver award.</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">Built an electronic payload launched into the atmosphere to collect environmental data. Python-controlled BMP280 sensor and Raspberry Pi. Coded a closed-loop feedback system to operate servos that opened/closed landing flaps. Industrial Cadets silver award.</p>
             <div class="flex flex-wrap gap-2 mb-6">
                 <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full dark:bg-blue-900/30 dark:text-blue-300">Python</span>
                 <span class="px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full dark:bg-green-900/30 dark:text-green-300">Raspberry Pi</span>
@@ -136,6 +150,69 @@
 </div>
 </section>
 
+<!-- CONTACT SECTION -->
+<section id="contact" class="grid-pattern border-t border-gray-200 dark:border-gray-800 py-20 px-4 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Side: Text -->
+        <div>
+            <h2 class="text-7xl font-black mb-6 uppercase leading-[0.8] text-gray-900 dark:text-white">
+                Let's<br><span class="text-emerald-500">Chat</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-sm">
+                I'm open to conversations about engineering internships and interesting projects. If you have something to share or ask, I'm keen to hear it!
+            </p>
+            <a href="#" class="inline-block border border-gray-300 dark:border-gray-700 px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                ↑ Back to Top
+            </a>
+        </div>
+
+        <!-- Right Side: Contact Boxes -->
+        <div class="space-y-4">
+            
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/haayed-aslam" target="_blank" class="block group p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl hover:border-blue-500 transition-all shadow-sm">
+                <div class="flex items-center gap-4">
+                    <span class="text-2xl">💼</span>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Linkedin</p>
+                        <p class="text-blue-600 dark:text-blue-400 font-mono break-all font-medium">linkedin.com/in/haayed-aslam</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Email -->
+            <div class="p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📧</span>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Email</p>
+                            <a href="mailto:haayed.aslam26@imperial.ac.uk" class="text-gray-900 dark:text-gray-200 font-mono break-all hover:text-emerald-500 transition-colors">haayed.aslam26@imperial.ac.uk</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <a href="mailto:haayed.aslam26@imperial.ac.uk" class="border border-gray-300 dark:border-gray-700 px-3 py-1 text-[10px] font-bold uppercase hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Open ↗</a>
+                        <button onclick="copyEmail()" class="border border-gray-300 dark:border-gray-700 px-3 py-1 text-[10px] font-bold uppercase hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub -->
+            <a href="https://github.com/haayedaslam" target="_blank" class="block group p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl hover:border-emerald-500 transition-all shadow-sm">
+                <div class="flex items-center gap-4">
+                    <span class="text-2xl">👾</span>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Github</p>
+                        <p class="text-gray-900 dark:text-gray-200 font-mono break-all font-medium">github.com/haayedaslam</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
 <footer class="bg-white dark:bg-gray-800 shadow-inner py-8">
     <div class="max-w-5xl mx-auto px-4 text-center">
         <p class="text-gray-500 dark:text-gray-400 text-sm">© 2026 Haayed Aslam</p>
@@ -143,6 +220,13 @@
 </footer>
 
 <script>
+    // Copy Email Logic
+    function copyEmail() {
+        navigator.clipboard.writeText('haayed.aslam26@imperial.ac.uk').then(() => {
+            alert('Email copied to clipboard!');
+        });
+    }
+
     // Dark Mode Logic
     const darkToggle = document.getElementById('darkToggle');
     const darkToggleMobile = document.getElementById('darkToggleMobile');
