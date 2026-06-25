@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyMed Project</title>
+    <title>Project SkyMed</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +31,7 @@
 <!-- MAIN -->
 <main class="max-w-3xl mx-auto px-6 py-12">
 
-    <!-- Title -->
+    <!-- Title block -->
     <div class="mb-8">
         <div class="flex flex-wrap gap-2 mb-4">
             <span class="px-3 py-1 text-xs font-semibold bg-orange-100 text-orange-700 rounded-full dark:bg-orange-900/30 dark:text-orange-300">Fusion (CAD)</span>
@@ -40,25 +40,132 @@
         </div>
         <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-3">ESA SkyMed Demonstration Project</h1>
         <div class="flex flex-col gap-3">
-            <img src="skyfarer_logo.png" alt="Skyfarer Logo" class="w-full h-auto" />
+            <img src="skyfarer-logo.png" alt="Skyfarer Logo" class="w-full h-auto" onerror="this.style.display='none'" />
             <p class="text-gray-500 dark:text-gray-400 text-sm">Skyfarer Ltd · Jun 2025 – Mar 2026</p>
         </div>
     </div>
 
-    <!-- Image -->
+    <!-- Hero image -->
     <div class="mb-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
-        <img
-            src="skyfarer.jpg"
-            alt="ESA SkyMed Demonstration Project"
-            class="w-full h-auto block"
-            onerror="this.parentElement.style.display='none'"
-        />
+        <img src="skyfarer.jpg" alt="ESA SkyMed Demonstration Project" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
     </div>
 
-    <!-- Content placeholder -->
-    <div class="prose prose-gray dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 text-base leading-relaxed space-y-6">
+    <!-- Content -->
+    <div class="max-w-none text-gray-700 dark:text-gray-300 text-base leading-relaxed space-y-8">
 
-        <p class="text-gray-400 dark:text-gray-500 italic">Content coming soon — check back later!</p>
+        <p>The European Space Agency (ESA) approached Skyfarer Ltd for a demonstration project, proving the potential for drones to transport NHS medical payloads between hospital roofs. When I joined the team as an intern, I primarily worked on this project, which involves implementing two subsystems: an automated rooftop droneport ("vertiport"), and a drone handling system (in which we modify the undercarriage of the drone to carry payloads).</p>
+
+        <p>This service aims to replace slower courier movements by road with BVLOS drones that reduces delays, increases delivery frequency, all while maintain high hygiene standards and infection control. What stands out about this particular project is that both subsystems manage dispatch, landing, and payload exchange without any human intervention. More information on SkyMed can be found <a href="https://business.esa.int/projects/skymed" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300">here</a>.</p>
+
+        <!-- Subsystem A -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Subsystem A — Drone Handling System</h2>
+
+            <p class="mb-4">Through meetings held with stakeholders from the ESA and NHS, we determined that the most important objectives for subsystem A included:</p>
+
+            <ul class="space-y-2 list-none pl-0 mb-6">
+                <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">→</span><span>Weight (system must not exceed 10kg)</span></li>
+                <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">→</span><span>Stability of package in flight (given the fragile nature of medical equipment)</span></li>
+                <li class="flex gap-3"><span class="text-blue-500 mt-1 flex-shrink-0">→</span><span>Modularity (the ability to be integrated into both VTOL and multi-rotor drone types)</span></li>
+            </ul>
+
+            <p class="mb-6">Several ideas were sketched in Fusion. I had some prior CAD experience before starting; however, I had a short timeframe to learn how to effectively leverage Fusion's parametric modelling capabilities. I picked up the basic techniques (mirror, extrude, fillet, shell, etc.) from following a YouTube tutorial series by <a href="https://www.youtube.com/@ProductDesignOnline" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300">Product Design Online</a>.</p>
+
+            <p class="mb-6">There are two parts to subsystem A: a component to hold the package, and an extension mechanism to raise/lower the package between the undercarriage and vertiport. To hold the package, I opted for a geared robotic gripper (Figure 1).</p>
+
+            <!-- Figure 1 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig1-gripper.jpg" alt="Figure 1: Robotic gripper in (a) fully opened state and (b) fully closed state" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 1: robotic gripper in (a) fully opened state and (b) fully closed state.</p>
+
+            <p class="mb-4">Next came the extension mechanism. Multiple concepts were drafted and assessed on trade-off comparison matrices. One of these was an electromagnetic (EM) winch cable. While its simplicity is favourable, I did not find this feasible due to the need for swing damping and the risk of EM interference with other parts of the project. Another idea was a linear robotic arm, but this suffers from being heavy and hard to integrate into the limited undercarriage space of the PW Orca VTOL.</p>
+
+            <p class="mb-6">We settled on a scissor lift (Figure 2) which I again designed in Fusion. Inspired by those found in IKEA warehouses, these are able to keep the robotic gripper & package stable in flight. They are also lighter than the robotic arm, with fewer parts, leading to lower maintenance costs. Scissor legs possess good compressive strength because when the lift raises/lowers, each leg mainly experiences axial compression & tension (not bending or shearing). The legs are able to distribute these compressive forces along their lengths, preventing a build-up of stress concentrations and avoiding failure by buckling. Since the whole mechanism distributes the load between multiple legs, no single leg bears the full weight, so the compressive stress per member is small.</p>
+
+            <p class="mb-6">The challenge with building these in Fusion is the numerous types of joint required. Whereas the aforementioned gripper only used revolute joints, the scissor lift additionally needs cylindrical & rigid joints. On my first attempt, I over-constrained the legs, so to fix this I systematically rebuilt the lift, testing each leg's degrees of freedom (using motion link studies) before combining all the parts to form the final model.</p>
+
+            <!-- Figure 2 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig2-scissor.jpg" alt="Figure 2: Scissor lift extension mechanism in (a) fully opened state and (b) fully closed state" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 2: scissor lift extension mechanism in (a) fully opened state and (b) fully closed state.</p>
+
+            <p class="mb-6">To perform stress tests in Fusion, I first had to choose suitable materials. Provisionally, ABS plastic was chosen for the scissor legs, as PETG (our preferred option) wasn't available on Fusion. The book "Structures" by J.E. Gordon outlined the high specific strength of honeycomb sandwiches, citing their stiffness under compression and resistance to shearing. This is because the stress per face of the hexagons is low with the added benefit that the structure is lightweight as the core is mostly air. Inspired, I used honeycomb aluminium sheets reinforced with carbon fibre (strong chemical resistance) for the lift platforms, thus reducing their weight.</p>
+
+            <p class="mb-4">The gripper and lift were combined to form the final subsystem A solution (Figure 3).</p>
+
+            <!-- Figure 3 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig3-combined.jpg" alt="Figure 3: Subsystem A with gripper and lift fully extended, attached to an Orca drone model" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 3: subsystem A with gripper and lift fully extended, attached to an Orca drone model.</p>
+        </div>
+
+        <!-- Subsystem B -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Subsystem B — Vertiport</h2>
+
+            <p class="mb-6">This is more than just a standard helipad. Below the landing area, the package must travel downwards through the hospital roof, before being pushed horizontally via conveyor belt into a room where NHS staff can receive packages, as well as send them back up for dispatch.</p>
+
+            <p class="mb-4">The first iteration of a basic vertiport design is below (Figure 4). The purpose with this model is to illustrate the layout. The electronics can be stored in compartments between the top of the chute and just below the landing pad (not pictured).</p>
+
+            <!-- Figure 4 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig4-vertiport-v1.jpg" alt="Figure 4: Vertiport version 1" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 4: vertiport version 1.</p>
+
+            <p class="mb-4">The next version (Figure 5) introduced four red lights (LED strips were considered to improve visibility but were deemed too large), a landing pad (with four trapezium pieces at the top which can be removed to open the electronics housing), and shielding against the natural elements when not in use (using hinges to form a triangle shape when closed).</p>
+
+            <!-- Figure 5 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig5-vertiport-v2.jpg" alt="Figure 5: Vertiport version 2" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 5: vertiport version 2. Half of the hinged shielding roof mechanism is shown.</p>
+
+            <p class="mb-4">Next, I needed to insert the aluminium profiles and their corresponding profile brackets in. This is shown in Figures 6 and 7 below. I also began designing the conveyor belt (Figure 8) to better display how the payloads will move along the vertiport.</p>
+
+            <!-- Figure 6 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig6-vertiport-v3.jpg" alt="Figure 6: Vertiport version 3" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 6: vertiport version 3.</p>
+
+            <!-- Figure 7 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig7-bracket.jpg" alt="Figure 7: Slotted profile bracket component inserted from the McMaster-Carr catalogue" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 7: slotted profile bracket component inserted from the McMaster-Carr catalogue.</p>
+
+            <!-- Figure 8 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig8-conveyor.jpg" alt="Figure 8: Conveyor belt for sending packages between the chute and the hospital room" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 8: conveyor belt for sending packages between the chute and the hospital room.</p>
+
+            <p class="mb-4">The final version (Figure 9) is wider to accommodate larger multi-rotor drones. I also made the switch to extended open gusset brackets (shown in green and in Figure 10) as they are reinforced to limit sway for improved structural stability than standard corner brackets (such as those seen in Figure 7). Acrylic doors (shown in red and in Figure 11) were added to house the conveyor belt and avoid damage from external factors.</p>
+
+            <!-- Figure 9 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig9-vertiport-v4.jpg" alt="Figure 9: Vertiport version 4 (final)" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 9: vertiport version 4 (final).</p>
+
+            <!-- Figure 10 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig10-gusset.jpg" alt="Figure 10: A pair of extended open gusset brackets" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 10: a pair of extended open gusset brackets.</p>
+
+            <!-- Figure 11 -->
+            <div class="mb-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                <img src="fig11-acrylic.jpg" alt="Figure 11: Acrylic doors shielding the conveyor belt and payloads" class="w-full h-auto block" onerror="this.parentElement.style.display='none'" />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-6">Figure 11: acrylic doors shielding the conveyor belt and payloads.</p>
+
+            <p>Static stress tests performed in Fusion on this final subsystem B design confirmed that the vertiport is able to support the maximum payload mass of 10kg. This was then 3D printed for physical tests which verified the results from Fusion.</p>
+        </div>
 
     </div>
 
