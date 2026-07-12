@@ -5,38 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haayed Aslam</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { 
-            darkMode: 'class' 
-        }
+        tailwind.config = { darkMode: 'class' }
     </script>
     <style>
+        body { font-family: 'Inter', sans-serif; }
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
         html { scroll-behavior: smooth; }
-
-        /* Grid Background for Contact Section */
-        .grid-pattern {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-        }
-        .dark .grid-pattern {
-            background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-        }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 text-gray-800 font-sans transition-colors duration-300">
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 text-gray-800 transition-colors duration-300">
 
+<!-- NAV -->
 <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
   <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
-    <a href="#" class="text-xl font-bold tracking-tight">Haayed Aslam</a>
+    <a href="#home" class="text-xl font-bold tracking-tight">Haayed Aslam</a>
     <nav class="hidden md:flex items-center space-x-6">
-      <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Home</a>
+      <a href="#home"     class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Home</a>
       <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Projects</a>
-      <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Contact</a>
+      <a href="#contact"  class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Contact</a>
       <button id="darkToggle" class="ml-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
         <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
       </button>
@@ -49,12 +39,29 @@
     </div>
   </div>
   <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700">
-    <a href="#" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+    <a href="#home"     class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
     <a href="#projects" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
-    <a href="#contact" class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+    <a href="#contact"  class="block py-3 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
   </div>
 </header>
 
+<!-- HOME / ABOUT -->
+<section id="home" class="bg-white dark:bg-gray-800 py-24 px-4 border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+      Haayed Aslam
+    </h1>
+    <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-2xl mb-10">
+      1st year undergraduate at <span class="text-gray-900 dark:text-white font-semibold">Imperial College London</span> studying Aeronautical Engineering, with a particular interest in aerodynamic design, UAVs and race strategy. I enjoy building things that bring utility to society (see below).
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#projects" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors">View Projects</a>
+      <a href="#contact"  class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects" class="bg-gray-100 dark:bg-gray-950 py-16 px-4 min-h-screen">
 <div class="max-w-5xl mx-auto">
     <div class="mb-12">
@@ -63,7 +70,7 @@
     </div>
 
     <div class="grid gap-8 sm:grid-cols-2">
-        
+
         <!-- Project 1 -->
         <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col">
             <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">F1 Tyre Degradation Simulator</h3>
@@ -100,9 +107,9 @@
         </div>
 
         <!-- Project 3 -->
-        <a href="skyfarer.html">
-            <div class="reveal bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col">
-                <h3 class="syne text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">ESA SkyMed Demonstration Project</h3>
+        <a href="skyfarer.html" class="block">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full">
+                <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">ESA SkyMed Demonstration Project</h3>
                 <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">During my internship at Skyfarer, I designed an ESA-approved handling system (vertiport + handling system) in Fusion to carry NHS payloads between hospital roofs using BVLOS drones. Selected suitable materials and performed stress tests in Fusion and on 3D printed parts.</p>
                 <div class="flex flex-wrap gap-2 mb-6">
                     <span class="px-3 py-1 text-xs font-semibold bg-orange-100 text-orange-700 rounded-full dark:bg-orange-900/30 dark:text-orange-300">Fusion (CAD)</span>
@@ -113,8 +120,8 @@
         </a>
 
         <!-- Project 4 -->
-        <a href="glider.html" class="flex flex-col">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col">
+        <a href="glider.html" class="block">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full">
                 <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">Model Balsa Glider</h3>
                 <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">Constructed a modular wooden glider to estimate its glide ratio. Chose light & stiff materials (e.g. foam board for wings). Leveraged aerodynamic principles (camber, dihedral) to maximise glide ratio. Improved stability by adding counterweights to the nose.</p>
                 <div class="flex flex-wrap gap-2 mb-6">
@@ -170,62 +177,62 @@
 </div>
 </section>
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="grid-pattern border-t border-gray-200 dark:border-gray-800 py-20 px-4 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        
-        <!-- Left Side: Text -->
+<!-- CONTACT -->
+<section id="contact" class="bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 py-20 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+
+        <!-- Left -->
         <div>
-            <h2 class="text-7xl font-black mb-6 uppercase leading-[0.8] text-gray-900 dark:text-white">
-                Let's<br><span class="text-emerald-500">Chat</span>
+            <h2 class="text-6xl font-black mb-6 uppercase leading-none text-gray-900 dark:text-white">
+                Let's<br><span class="text-blue-600 dark:text-blue-400">Chat</span>
             </h2>
-            <p class="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-base mb-8 max-w-sm">
                 I'm open to conversations about all things engineering. If you have something to share or ask, I'm keen to hear it!
             </p>
-            <a href="#" class="inline-block border border-gray-300 dark:border-gray-700 px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+            <a href="#home" class="inline-block border border-gray-300 dark:border-gray-600 px-5 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all rounded-lg">
                 ↑ Back to Top
             </a>
         </div>
 
-        <!-- Right Side: Contact Boxes -->
-        <div class="space-y-4">
-            
+        <!-- Right -->
+        <div class="space-y-3">
+
             <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/haayed-aslam" target="_blank" class="block group p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl hover:border-blue-500 transition-all shadow-sm">
-                <div class="flex items-center gap-4">
-                    <span class="text-2xl">💼</span>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Linkedin</p>
-                        <p class="text-blue-600 dark:text-blue-400 font-mono break-all font-medium">linkedin.com/in/haayed-aslam</p>
-                    </div>
+            <a href="https://linkedin.com/in/haayed-aslam" target="_blank"
+               class="flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-6 py-4 hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all">
+                <span class="text-2xl">💼</span>
+                <div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-0.5">LinkedIn</p>
+                    <p class="text-gray-900 dark:text-white font-semibold text-sm">Haayed Aslam</p>
                 </div>
             </a>
 
             <!-- Email -->
-            <div class="p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-sm">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-6 py-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div class="flex items-center gap-4">
                         <span class="text-2xl">📧</span>
                         <div>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Email</p>
-                            <a href="mailto:haayed.aslam26@imperial.ac.uk" class="text-gray-900 dark:text-gray-200 font-mono break-all hover:text-emerald-500 transition-colors">haayed.aslam26@imperial.ac.uk</a>
+                            <p class="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-0.5">Email</p>
+                            <p class="text-gray-900 dark:text-white font-semibold text-sm">haayed.aslam26@imperial.ac.uk</p>
                         </div>
                     </div>
                     <div class="flex gap-2 shrink-0">
-                        <a href="mailto:haayed.aslam26@imperial.ac.uk" class="border border-gray-300 dark:border-gray-700 px-3 py-1 text-[10px] font-bold uppercase hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Open ↗</a>
-                        <button onclick="copyEmail()" class="border border-gray-300 dark:border-gray-700 px-3 py-1 text-[10px] font-bold uppercase hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Copy</button>
+                        <a href="mailto:haayed.aslam26@imperial.ac.uk"
+                           class="border border-gray-300 dark:border-gray-600 px-3 py-1.5 text-xs font-bold uppercase rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Open ↗</a>
+                        <button id="copyBtn" onclick="copyEmail()"
+                                class="border border-gray-300 dark:border-gray-600 px-3 py-1.5 text-xs font-bold uppercase rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Copy</button>
                     </div>
                 </div>
             </div>
 
             <!-- GitHub -->
-            <a href="https://github.com/haayedaslam" target="_blank" class="block group p-6 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl hover:border-emerald-500 transition-all shadow-sm">
-                <div class="flex items-center gap-4">
-                    <span class="text-2xl">👾</span>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Github</p>
-                        <p class="text-gray-900 dark:text-gray-200 font-mono break-all font-medium">github.com/haayedaslam</p>
-                    </div>
+            <a href="https://github.com/haayedaslam" target="_blank"
+               class="flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-6 py-4 hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all">
+                <span class="text-2xl">👾</span>
+                <div>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-0.5">GitHub</p>
+                    <p class="text-gray-900 dark:text-white font-semibold text-sm">haayedaslam</p>
                 </div>
             </a>
 
@@ -233,47 +240,41 @@
     </div>
 </section>
 
-<footer class="bg-white dark:bg-gray-800 shadow-inner py-8">
+<footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
     <div class="max-w-5xl mx-auto px-4 text-center">
         <p class="text-gray-500 dark:text-gray-400 text-sm">© 2026 Haayed Aslam</p>
     </div>
 </footer>
 
 <script>
-    // Copy Email Logic
     function copyEmail() {
         navigator.clipboard.writeText('haayed.aslam26@imperial.ac.uk').then(() => {
-            alert('Email copied to clipboard!');
+            const btn = document.getElementById('copyBtn');
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
         });
     }
 
-    // Dark Mode Logic
     const darkToggle = document.getElementById('darkToggle');
     const darkToggleMobile = document.getElementById('darkToggleMobile');
     const html = document.documentElement;
 
     function toggleDarkMode() {
         html.classList.toggle('dark');
-        const isDark = html.classList.contains('dark');
-        localStorage.setItem('darkMode', isDark);
+        localStorage.setItem('darkMode', html.classList.contains('dark'));
     }
 
     darkToggle.addEventListener('click', toggleDarkMode);
     darkToggleMobile.addEventListener('click', toggleDarkMode);
 
-    // Initial check
-    if (localStorage.getItem('darkMode') === 'true' || 
+    if (localStorage.getItem('darkMode') === 'true' ||
         (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         html.classList.add('dark');
     }
 
-    // Mobile Menu Logic
     const menuBtn = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-    });
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
 </script>
 </body>
 </html>
